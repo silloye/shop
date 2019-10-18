@@ -5,7 +5,7 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("myDruidProperties")
 @ConfigurationProperties(prefix = "spring.datasource.druid")
 @Getter
 @Setter
