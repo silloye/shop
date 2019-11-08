@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mall.shop.mybatis.dao.ProductTypeMapper">
+
+    <resultMap id="BaseResultMap" type="cn.mall.shop.mybatis.entity.ProductType">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+    </resultMap>
+
+    <select id="getById" resultType="cn.mall.shop.mybatis.entity.ProductType">
+        select * from prd_type where id = #{id}
+    </select>
+
+    <select id="getProductType" resultType="cn.mall.shop.mybatis.entity.ProductType">
+        select * from prd_type
+    </select>
+
+</mapper>

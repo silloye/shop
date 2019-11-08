@@ -17,41 +17,6 @@ import java.sql.SQLException;
 @Configuration
 public class DruidConfig {
 
-//    @Autowired
-//    @Qualifier("myDruidProperties")
-//    private DruidDataSourceProperties properties;
-
-//    @Bean
-////    @ConditionalOnMissingBean
-//    @Primary
-//    public DataSource druidDataSource() {
-//        DruidDataSource druidDataSource;
-//        try {
-//            //将我们自己定义的配置信息注入的DruidDataSource的对象中
-//            druidDataSource = new DruidDataSource();
-//            druidDataSource.setDriverClassName(properties.getDriverClassName());
-//            druidDataSource.setUrl(properties.getUrl());
-//            druidDataSource.setUsername(properties.getUsername());
-//            druidDataSource.setPassword(properties.getPassword());
-//            druidDataSource.setMaxActive(properties.getMaxActive());
-//            druidDataSource.setInitialSize(properties.getInitialSize());
-//            druidDataSource.setMaxWait(properties.getMaxWait());
-//            druidDataSource.setMinIdle(properties.getMinIdle());
-//            druidDataSource.setValidationQuery(properties.getValidationQuery());
-//            druidDataSource.setFilters(properties.getFilters());
-//            druidDataSource.setTimeBetweenEvictionRunsMillis(properties.getTimeBetweenEvictionRunsMillis());
-//            druidDataSource.setMinEvictableIdleTimeMillis(properties.getMinEvictableIdleTimeMillis());
-//            druidDataSource.setPoolPreparedStatements(properties.getPoolPreparedStatements());
-//            druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(properties.getMaxPoolPreparedStatementPerConnectionSize());
-//            druidDataSource.setMaxOpenPreparedStatements(properties.getMaxOpenPreparedStatements());
-//            druidDataSource.init();
-//            return druidDataSource;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-
     @Primary
     @Bean
     @ConfigurationProperties("spring.datasource.druid")

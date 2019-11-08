@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        var type = $("#type");
+        $.get(
+            "http://127.0.0.1/product/getProductType",
+            function(data, status) {
+                debugger;
+                if(status != "success") {
+                    return;
+                }
+                var type = $('#type');
+                data.forEach(function(item, index) {
+                    type.append("<option value='" + item.id + "'>" + item.name + "</option>");
+                })
+            }
+        )
+    </script>
+</head>
+<body>
+<form action="http://127.0.0.1/product/submit" enctype="multipart/form-data" method="post">
+    <div>
+        商品名称：<input name="name" type="text" />
+    </div>
+    <div>
+        商品类型：<select name="type" id="type"></select>
+    </div>
+    <div>
+        相册：<input type="file" multiple="multiple" name="files" />
+        <div>
+            （注意:第一张为默认图片）
+        </div>
+    </div>
+    <div>
+        描述：<input name="describe" type="text" />
+    </div>
+    <div>
+        价格：<input name="price" type="text" /> 元
+    </div>
+    <div>
+        计量：<input name="measure" type="text" />
+    </div>
+    <div>
+        <button type="submit">提交</button>
+    </div>
+</form>
+
+</body>
+</html>

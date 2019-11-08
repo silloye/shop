@@ -1,10 +1,14 @@
 server:
-  port: 8080
+  port: 80
   servlet:
     session:
       timeout: 30
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB #单个文件大小
+      max-request-size: 100MB #总上传文件大小
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -26,3 +30,8 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml #扫描mapper的xml文件
   type-aliases-package: cn.mail.shop.entity  #配置entity类别名，为类首字母小写
+
+file:
+  upload:
+    path: F:\photos\
+  baseUrl: http://127.0.0.1:8080/demo/

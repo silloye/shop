@@ -24,7 +24,7 @@
         <appender-ref ref="STDOUT"></appender-ref>
     </logger>
 
-    <logger name="cn.mall.shop.dao" level="DEBUG" additivity="false">
+    <logger name="cn.mall.shop.mybatis.dao" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"></appender-ref>
     </logger>
 

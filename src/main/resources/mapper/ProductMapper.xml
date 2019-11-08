@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mall.shop.mybatis.dao.ProductMapper">
+
+    <resultMap id="BaseResultMap" type="cn.mall.shop.mybatis.entity.Product">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="BASE_DIR" jdbcType="VARCHAR" property="baseDir" />
+        <result column="FILE_NAMES" jdbcType="VARCHAR" property="fileNames" />
+        <result column="DESCRIBE" jdbcType="VARCHAR" property="describe" />
+        <result column="TYPE" jdbcType="INTEGER" property="type" />
+        <result column="ORIGIN_NAME" jdbcType="VARCHAR" property="originName" />
+        <result column="FILE_TYPE" jdbcType="VARCHAR" property="fileType" />
+        <result column="MEASURE" jdbcType="VARCHAR" property="measure" />
+        <result column="PRICE" jdbcType="FLOAT" property="price" />
+    </resultMap>
+
+    <select id="getById" parameterType="String" resultType="cn.mall.shop.mybatis.entity.Product">
+        select ID, NAME, BASE_DIR as baseDir, FILE_NAMES as fileNames, `DESCRIBE` as `describe`,
+            TYPE as type, ORIGIN_NAME as originName, FILE_TYPE as fileType, PRICE as price, MEASURE as measure
+        from product where id = #{id}
+    </select>
+
+    <select id="getHotProduct" resultType="cn.mall.shop.mybatis.entity.Product">
+        select p.ID, p.NAME, p.BASE_DIR as baseDir, FILE_NAMES as fileNames, `DESCRIBE` as `describe`,
+            TYPE as type, ORIGIN_NAME as originName, FILE_TYPE as fileType, PRICE as price, MEASURE as measure
+        from hot_product h, product p
+        where h.productId = p.id
+    </select>
+
+    <insert id="insert">
+        insert into product(name, base_dir, file_names, `describe`, type, origin_name, file_type, price, measure)
+        values(#{name }, #{baseDir }, #{fileNames }, #{describe }, #{type }, #{originName }, #{fileType }, #{price }, #{measure })
+    </insert>
+</mapper>

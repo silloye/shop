@@ -1,6 +1,6 @@
 package cn.mall.shop.controller;
 
-import cn.mall.shop.dao.UserMapper;
+import cn.mall.shop.mybatis.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
